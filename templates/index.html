@@ -1,1 +1,40 @@
-Hi this is a website
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Chant</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/jumbotronNarrow.css')}}" rel="stylesheet">
+
+  </head>
+
+ <body>
+
+<canvas id="myCanvas" width="578" height="400"></canvas>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      var imageObj = new Image();
+
+      imageObj.onload = function() {
+        context.drawImage(imageObj, 0, 0);
+        context.fillStyle = "white";
+        context.fillRect(200, 200, 120, 60);
+
+
+      };
+      imageObj.src = '{{ url_for('static', filename='css/jumbotronNarrow.css')}}';
+    </script>
+</canvas>
+
+ </body>
